@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<link rel='stylesheet' type='text/css' href='/stylesheets/main.css'>
+
+	<title>Portfolio of Niko Sääski</title>
+</head>
+	<body>
+
+		<!-- THE NAVBAR IS DISABLED FOR NOW, WASN'T LOOKING TOO GOOD -->
+		<!-- 
+		<nav id='navbar' class='navbar navbar-expand-md navbar-light'>
+				<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+						<span class='navbar-toggler-icon'></span>
+				</button>
+				<div class='collapse navbar-collapse' id='navbarSupportedContent'>
+						<ul class='navbar-nav mr-auto'>
+								<li class='nav-item'>
+										<a class='nav-link' href='#top'>Top</a>
+								</li>
+								<li class='nav-item'>
+										<a class='nav-link' href='#work'>Work</a>
+								</li>
+								<li class='nav-item'>
+										<a class='nav-link' href='#education'>Education</a>
+								</li>
+								<li class='nav-item'>
+										<a class='nav-link' href='#links'>Links</a>
+								</li>
+						</ul>
+				</div>
+		</nav> -->
+
+		<div class='container' id='top'>
+			<section id='who'>
+				<h3>Who?</h3>
+				<img id='profilePicture' src='headshot.png' alt="Profile picture">
+				<p class='lead'>Niko Sääski - a civil engineer branching out to web development. On the lookout for the first job or internship!</p>
+				<p>Currently I'm studying by on doing online courses on Udemy and freeCodeCamp alongside a real-life course by Corealate in Katowice, Poland. I have studied and been exposed to following technologies:
+					<ul>
+						<li>HTML / CSS / JavaScript</li>
+						<li>Node.js and Express.js</li>
+						<li>MongoDB and mongoose</li>
+						<li>Git</li>
+						<li>Bootstrap 3 & 4</li>
+						<li>jQuery</li>
+						<li>React</li>
+						<li>Jest</li>
+						<li>PostgreSQL</li>
+					</ul>
+				<p>The ones I am more familiar with are at the top of the list and the ones closer to the bottom are a bit of an obscurity. But my aim is to keep studying and improving.</p>
+			</section>
+
+			<section id='work'>
+				<h3>Work history</h3>
+				<p>
+					Versatile background in various fields including IT support, content moderation, mining, construction, customer service and sales - click on a job to reveal more information about it.
+				</p>
+				<div class='accordion' id='job-experience'>
+					<!-- FOR EACH JOB IN THE DB CREATE A CARD THAT FOLDS -->
+					<% allJobs.forEach(function(job){ %> 
+						<div class='card'>
+							<div class='card-header' id='heading<%= job._id %>'>
+								<h5 class='mb-0'>
+									<button class='btn btn-link card-title' aria-expanded='true'  type='button' data-toggle='collapse' data-target='#collapse<%= job._id %>' aria-controls='#collapse<%= job._id %>'>
+										<span class='pull-left'><class='uppercase'><%= job.company %></class> - <%= job.jobTitle %></span>
+										<!-- DISPLAY THE WORK TIME AS MM/YYYY -->
+										<span class='pull-right d-none d-sm-block'><%= job.dateStart.getMonth() %>/<%= job.dateStart.getFullYear() %> - <%= job.dateEnd.getMonth() %>/<%= job.dateEnd.getFullYear() %></span>
+									</button>
+								</h5>
+							</div>
+
+							<!-- IF YOU ADD CLASS 'data-parent='#job-experience' - MAKES THE CARDS COLLAPSE WHEN ONE IS CLICKED -->
+							<div class='collapse' id='collapse<%= job._id %>' aria-labelledby='heading<%= job._id %>'> 
+								<div class='card-body'>
+									<ul>
+										<!-- Display the date in the card body on small displays -->
+										<li class='d-block d-sm-none'><%= job.dateStart.getMonth() %>/<%= job.dateStart.getFullYear() %> - <%= job.dateEnd.getMonth() %>/<%= job.dateEnd.getFullYear() %></li>
+										<li><%= job.location %></li>
+										<li><%= job.description %></li>
+									</ul>
+								</div>
+							</div>
+						</div>    
+					<% }) %>
+				</div>
+			</section>
+
+
+			<section id='education'>
+				<h4>Education & courses</h4>
+				<div class='accordion' id='job-experience'>
+					<!-- FOR EACH JOB IN THE DB CREATE A CARD THAT FOLDS -->
+					<% allEdu.forEach(function(edu){ %> 
+						<div class='card'>
+							<div class='card-header' id='heading<%= edu._id %>'>
+								<h5 class='mb-0'>
+									<button class='btn btn-link card-title' aria-expanded='true'  type='button' data-toggle='collapse' data-target='#collapse<%= edu._id %>' aria-controls='#collapse<%= edu._id %>'>
+										<span class='pull-left'><class='uppercase'><%= edu.company %></class> - <%= edu.jobTitle %></span>
+										<!-- DISPLAY THE WORK TIME AS MM/YYYY -->
+										<span class='pull-right d-none d-sm-block'><%= edu.dateStart.getMonth() %>/<%= edu.dateStart.getFullYear() %> - <%= edu.dateEnd.getMonth() %>/<%= edu.dateEnd.getFullYear() %></span>
+									</button>
+								</h5>
+							</div>
+
+							<div class='collapse' id='collapse<%= edu._id %>' aria-labelledby='heading<%= edu._id %>'> 
+								<div class='card-body'>
+									<ul>
+										<!-- Display the date in the card body on small displays -->
+										<li class='d-block d-sm-none'><%= edu.dateStart.getMonth() %>/<%= edu.dateStart.getFullYear() %> - <%= edu.dateEnd.getMonth() %>/<%= edu.dateEnd.getFullYear() %></li>
+										<li><%= edu.location %></li>
+										<li><%= edu.description %></li>
+										<% if (edu.certificate) { %>
+										<li><a href="<%= edu.certificate %>" target="_blank">Certificate</a>
+										<% } %>
+									</ul>
+								</div>	
+							</div>
+						</div>    
+					<% }) %>
+				</div>
+			</section>
+
+			<section id='links'>
+				<h4>Links to some projects and profiles elsewhere</h4>
+
+				<div class="flex-row">
+					<a href="https://aqueous-island-34598.herokuapp.com/" target="_blank">
+						<div class="link-tile">
+							<img src="thumbnails/yelpcamp.png" alt="YelpCamp clone">
+							<div class="overlay">
+								<div class="overlay-text">
+									Campsite-themed Yelp clone, NodeJS & MongoDB - Web developer bootcamp project
+								</div>
+							</div>
+						</div>
+					</a>
+
+					<a href="/ventti/index.html" target="_blank">
+						<div class="link-tile">
+							<img src="thumbnails/Ventti.png" alt="Ventti">
+							<div class="overlay">
+								<div class="overlay-text">
+									Ventti - Finnish blackjack game, made in JS. Buggy proof-of-concept
+								</div>
+							</div>
+						</div>
+					</a>
+
+					<a href="https://github.com/nikalsson/" id="profile-link" target="_blank">
+						<div class="link-tile">
+							<img src="thumbnails/github.svg" alt="GitHub">
+							<div class="overlay">
+								<div class="overlay-text">
+									GitHub profile
+								</div>
+							</div>
+						</div>  
+					</a>
+
+					<!-- <a href="https://www.freecodecamp.org/fcc48b858f7-7d68-4fb2-a2e3-c22d58c80119" id="profile-link" target="_blank">
+						<div class="link-tile">
+							<img src="thumbnails/fcc.png" alt="freecodecamp">
+							<div class="overlay">
+								<div class="overlay-text">
+									FreeCodeCamp profile
+								</div>
+							</div>
+						</div>  
+					</a> -->
+
+					<a href="https://www.linkedin.com/in/niko-sääski-692849135" id="profile-link" target="_blank">
+						<div class="link-tile">
+							<img src="thumbnails/linkedin.svg" alt="LinkedIn">
+							<div class="overlay">
+								<div class="overlay-text">
+									LinkedIn profile
+								</div>
+							</div>
+						</div>  
+					</a>
+				</div>
+			</section>
+	
+			<section id='about'>
+				<h4>What is this page about?</h4>	
+				<p>This is portfolio / CV / practice project for web development. It's made using HTML, CSS, JavaScript, Node.js, Express.js, MongoDB, mLab, mongoose, Heroku, Bootstrap 4 and jQuery. </p>
+
+				<p>Feel free to contact me <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#105;&#107;&#97;&#108;&#115;&#115;&#111;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">via email</a> for more information.
+				</p>
+			</section>
+		
+		</div>
+
+			<!-- jQuery -->
+			<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+			<!-- Bootstrap 4.1.3  -->
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+			<!-- 	for toggling the navbar classes	 -->
+			<script>
+				
+				// THE NAVBAR IS DISABLED FOR NOW - THIS IS NOT NECESSARY
+				// function checkWindowWidth() {
+				// 		if ($(window).width() < 768){
+				// 				$('#navbar').addClass('sticky-top bg-light');
+				// 		} else {
+				// $('#navbar').removeClass('sticky-top bg-light');
+				// 		}
+				// }
+
+				checkWindowWidth();
+				$(window).resize(checkWindowWidth)
+			</script>	
+	</body>
+</html>
