@@ -50,6 +50,6 @@ app.get('/', function(req, res){
 });
 	
 
-app.listen(3030, function(){
+app.listen(process.env.PORT || 3030, function(){
     console.log('THE SERVER IS RUNNING');
 });
