@@ -65,9 +65,10 @@
 							<div class='card-header' id='heading<%= job._id %>'>
 								<h5 class='mb-0'>
 									<button class='btn btn-link card-title' aria-expanded='true'  type='button' data-toggle='collapse' data-target='#collapse<%= job._id %>' aria-controls='#collapse<%= job._id %>'>
-										<span class='pull-left'><span class='uppercase'><%= job.company %></span> - <%= job.jobTitle %></span>
+										<span class='pull-left d-none d-sm-block'><span class='uppercase'><%= job.company %></span> - <%= job.jobTitle %></span>
+										<span class='pull-left d-block d-sm-none uppercase'><%= job.company %></span>
 										<!-- DISPLAY THE WORK TIME AS MM/YYYY -->
-										<span class='pull-right d-none d-sm-block'><%= job.dateStart.getMonth() + 1 %>/<%= job.dateStart.getFullYear() %> - <%= job.dateEnd.getMonth() + 1 %>/<%= job.dateEnd.getFullYear() %></span>
+										<span class='pull-right d-none d-sm-block'><%= moment(job.dateStart).format('MM') %>/<%= job.dateStart.getFullYear() %> - <%= moment(job.dateEnd).format('MM') %>/<%= job.dateEnd.getFullYear() %></span>
 									</button>
 								</h5>
 							</div>
@@ -76,8 +77,9 @@
 							<div class='collapse' id='collapse<%= job._id %>' aria-labelledby='heading<%= job._id %>'> 
 								<div class='card-body'>
 									<ul>
-										<!-- Display the date in the card body on small displays -->
-										<li class='d-block d-sm-none'><%= job.dateStart.getMonth() + 1 %>/<%= job.dateStart.getFullYear() %> - <%= job.dateEnd.getMonth() + 1 %>/<%= job.dateEnd.getFullYear() %></li>
+										<!-- Display the date and job title in the card body on small displays -->
+										<li class='d-block d-sm-none'><%= job.jobTitle %></li>
+										<li class='d-block d-sm-none'><%= moment(job.dateStart).format('MM') %>/<%= job.dateStart.getFullYear() %> - <%= moment(job.dateEnd).format('MM') %>/<%= job.dateEnd.getFullYear() %></li>
 										<li><%= job.location %></li>
 										<li><%= job.description %></li>
 									</ul>
@@ -98,9 +100,10 @@
 							<div class='card-header' id='heading<%= edu._id %>'>
 								<h5 class='mb-0'>
 									<button class='btn btn-link card-title' aria-expanded='true'  type='button' data-toggle='collapse' data-target='#collapse<%= edu._id %>' aria-controls='#collapse<%= edu._id %>'>
-										<span class='pull-left'><span class='uppercase'><%= edu.company %></span> - <%= edu.jobTitle %></span>
+										<span class='pull-left d-none d-sm-block'><span class='uppercase'><%= edu.company %></span> - <%= edu.jobTitle %></span>
+										<span class='pull-left d-block d-sm-none uppercase'><%= edu.company %></span>
 										<!-- DISPLAY THE WORK TIME AS MM/YYYY -->
-										<span class='pull-right d-none d-sm-block'><%= edu.dateStart.getMonth() + 1 %>/<%= edu.dateStart.getFullYear() %> - <%= edu.dateEnd.getMonth() + 1 %>/<%= edu.dateEnd.getFullYear() %></span>
+										<span class='pull-right d-none d-sm-block'><%= moment(edu.dateStart).format('MM') %>/<%= edu.dateStart.getFullYear() %> - <%= moment(edu.dateEnd).format('MM') %>/<%= edu.dateEnd.getFullYear() %></span>
 									</button>
 								</h5>
 							</div>
@@ -109,7 +112,8 @@
 								<div class='card-body'>
 									<ul>
 										<!-- Display the date in the card body on small displays -->
-										<li class='d-block d-sm-none'><%= edu.dateStart.getMonth() + 1 %>/<%= edu.dateStart.getFullYear() %> - <%= edu.dateEnd.getMonth() + 1 %>/<%= edu.dateEnd.getFullYear() %></li>
+										<li class='d-block d-sm-none'><%= edu.jobTitle %></li>
+										<li class='d-block d-sm-none'><%= moment(edu.dateStart).format('MM') %>/<%= edu.dateStart.getFullYear() %> - <%= moment(edu.dateEnd).format('MM') %>/<%= edu.dateEnd.getFullYear() %></li>
 										<li><%= edu.location %></li>
 										<li><%= edu.description %></li>
 										<% if (edu.certificate) { %>
@@ -217,8 +221,9 @@
 				// 		}
 				// }
 
-				checkWindowWidth();
-				$(window).resize(checkWindowWidth)
+				// checkWindowWidth();
+				// $(window).resize(checkWindowWidth)
+
 			</script>	
 	</body>
 </html>

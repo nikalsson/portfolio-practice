@@ -23,6 +23,10 @@ html {
     padding: 1% 0;
 }
 
+.card-body {
+	line-height: 1.75;
+}
+
 .card-body ul {
     list-style: none;
     text-align: justify; 

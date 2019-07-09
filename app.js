@@ -22,6 +22,9 @@ mongoose.connect(process.env.DATABASEADDRESS, { useNewUrlParser: true});
 
 // seedDB(); // Seed the database with new information
 
+// passes moment to all routes with .locals for better handling of date
+app.locals.moment = require("moment");
+
 // Resume - show all jobs & education from DB
 app.get('/', function(req, res){
 	let locals = {};
