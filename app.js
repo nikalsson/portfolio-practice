@@ -18,6 +18,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 // Connect the mongoose module to a mLab database
 mongoose.connect(process.env.DATABASEADDRESS, { useNewUrlParser: true});
+//'mongodb://localhost:27017/portfolio' FOR LOCAL DB
 
 // seedDB(); // Seed the database with new information
 

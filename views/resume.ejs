@@ -67,7 +67,7 @@
 									<button class='btn btn-link card-title' aria-expanded='true'  type='button' data-toggle='collapse' data-target='#collapse<%= job._id %>' aria-controls='#collapse<%= job._id %>'>
 										<span class='pull-left'><span class='uppercase'><%= job.company %></span> - <%= job.jobTitle %></span>
 										<!-- DISPLAY THE WORK TIME AS MM/YYYY -->
-										<span class='pull-right d-none d-sm-block'><%= job.dateStart.getMonth() %>/<%= job.dateStart.getFullYear() %> - <%= job.dateEnd.getMonth() %>/<%= job.dateEnd.getFullYear() %></span>
+										<span class='pull-right d-none d-sm-block'><%= job.dateStart.getMonth() + 1 %>/<%= job.dateStart.getFullYear() %> - <%= job.dateEnd.getMonth() + 1 %>/<%= job.dateEnd.getFullYear() %></span>
 									</button>
 								</h5>
 							</div>
@@ -77,7 +77,7 @@
 								<div class='card-body'>
 									<ul>
 										<!-- Display the date in the card body on small displays -->
-										<li class='d-block d-sm-none'><%= job.dateStart.getMonth() %>/<%= job.dateStart.getFullYear() %> - <%= job.dateEnd.getMonth() %>/<%= job.dateEnd.getFullYear() %></li>
+										<li class='d-block d-sm-none'><%= job.dateStart.getMonth() + 1 %>/<%= job.dateStart.getFullYear() %> - <%= job.dateEnd.getMonth() + 1 %>/<%= job.dateEnd.getFullYear() %></li>
 										<li><%= job.location %></li>
 										<li><%= job.description %></li>
 									</ul>
@@ -100,7 +100,7 @@
 									<button class='btn btn-link card-title' aria-expanded='true'  type='button' data-toggle='collapse' data-target='#collapse<%= edu._id %>' aria-controls='#collapse<%= edu._id %>'>
 										<span class='pull-left'><span class='uppercase'><%= edu.company %></span> - <%= edu.jobTitle %></span>
 										<!-- DISPLAY THE WORK TIME AS MM/YYYY -->
-										<span class='pull-right d-none d-sm-block'><%= edu.dateStart.getMonth() %>/<%= edu.dateStart.getFullYear() %> - <%= edu.dateEnd.getMonth() %>/<%= edu.dateEnd.getFullYear() %></span>
+										<span class='pull-right d-none d-sm-block'><%= edu.dateStart.getMonth() + 1 %>/<%= edu.dateStart.getFullYear() %> - <%= edu.dateEnd.getMonth() + 1 %>/<%= edu.dateEnd.getFullYear() %></span>
 									</button>
 								</h5>
 							</div>
@@ -109,7 +109,7 @@
 								<div class='card-body'>
 									<ul>
 										<!-- Display the date in the card body on small displays -->
-										<li class='d-block d-sm-none'><%= edu.dateStart.getMonth() %>/<%= edu.dateStart.getFullYear() %> - <%= edu.dateEnd.getMonth() %>/<%= edu.dateEnd.getFullYear() %></li>
+										<li class='d-block d-sm-none'><%= edu.dateStart.getMonth() + 1 %>/<%= edu.dateStart.getFullYear() %> - <%= edu.dateEnd.getMonth() + 1 %>/<%= edu.dateEnd.getFullYear() %></li>
 										<li><%= edu.location %></li>
 										<li><%= edu.description %></li>
 										<% if (edu.certificate) { %>
