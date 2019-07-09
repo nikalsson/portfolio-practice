@@ -66,7 +66,7 @@
 								<h5 class='mb-0'>
 									<button class='btn btn-link card-title' aria-expanded='true'  type='button' data-toggle='collapse' data-target='#collapse<%= job._id %>' aria-controls='#collapse<%= job._id %>'>
 										<span class='pull-left d-none d-sm-block'><span class='uppercase'><%= job.company %></span> - <%= job.jobTitle %></span>
-										<span class='pull-left d-block d-sm-none uppercase'><%= job.company %></span>
+										<span class='pull-left d-block d-sm-none uppercase cut-text'><%= job.company %></span>
 										<!-- DISPLAY THE WORK TIME AS MM/YYYY -->
 										<span class='pull-right d-none d-sm-block'><%= moment(job.dateStart).format('MM') %>/<%= job.dateStart.getFullYear() %> - <%= moment(job.dateEnd).format('MM') %>/<%= job.dateEnd.getFullYear() %></span>
 									</button>
@@ -101,7 +101,7 @@
 								<h5 class='mb-0'>
 									<button class='btn btn-link card-title' aria-expanded='true'  type='button' data-toggle='collapse' data-target='#collapse<%= edu._id %>' aria-controls='#collapse<%= edu._id %>'>
 										<span class='pull-left d-none d-sm-block'><span class='uppercase'><%= edu.company %></span> - <%= edu.jobTitle %></span>
-										<span class='pull-left d-block d-sm-none uppercase'><%= edu.company %></span>
+										<span class='pull-left d-block d-sm-none uppercase cut-text'><%= edu.company %></span>
 										<!-- DISPLAY THE WORK TIME AS MM/YYYY -->
 										<span class='pull-right d-none d-sm-block'><%= moment(edu.dateStart).format('MM') %>/<%= edu.dateStart.getFullYear() %> - <%= moment(edu.dateEnd).format('MM') %>/<%= edu.dateEnd.getFullYear() %></span>
 									</button>
