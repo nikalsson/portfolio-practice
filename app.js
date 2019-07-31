@@ -4,23 +4,19 @@ const	express		= require('express'),
 		app			= express(),
 		Job			= require('./models/jobs'),
 		Edu			= require('./models/education'),
-		// seedDB		= require('./seeds'),
 		async		= require('async');
 
 // dotenv for hiding the address of the database
 require('dotenv').config();
-
 
 // App configuration
 // Set the view engine to EJS 
 app.set('view engine', 'ejs');
 // Serve static files (such as images or CSS) from a directory 'public', built-in middleware function
 app.use(express.static('public'));
-// Connect the mongoose module to a mLab database
+// Connect the mongoose module to a mLab database, hidden the DB address with .env
 mongoose.connect(process.env.DATABASEADDRESS, { useNewUrlParser: true});
 //'mongodb://localhost:27017/portfolio' FOR LOCAL DB
-
-// seedDB(); // Seed the database with new information
 
 // passes moment to all routes with .locals for better handling of date
 app.locals.moment = require("moment");
@@ -52,7 +48,6 @@ app.get('/', function(req, res){
 			res.render('resume', {allJobs: locals.allJobs, allEdu: locals.allEdu});
 		});			   
 });
-	
 
 app.listen(process.env.PORT || 3030, function(){
     console.log('THE SERVER IS RUNNING');
