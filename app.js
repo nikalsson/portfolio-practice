@@ -32,7 +32,7 @@ app.get('/', function(req, res){
 					if (err) return callback(err);
 					locals.allJobs = allJobs;
 					callback();
-				}).sort({_id: 1}); // use .sort() to sort the database by IDs
+				}).sort({dateStart: -1}); // use .sort() to sort the jobs from newest to oldest
 			},
 			// Load education data
 			function(callback){
@@ -40,7 +40,7 @@ app.get('/', function(req, res){
 					if (err) return callback(err);
 					locals.allEdu = allEdu;
 					callback();
-				}).sort({_id: 1});
+				}).sort({dateStart: -1});
 			}
 		],
 		function(err){ //Called after both tasks have called their callbacks
