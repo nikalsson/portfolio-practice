@@ -6,17 +6,15 @@ const	express		= require('express'),
 		Edu			= require('./models/education'),
 		async		= require('async');
 
-// dotenv for hiding the address of the database
-require('dotenv').config();
-
 // App configuration
 // Set the view engine to EJS 
 app.set('view engine', 'ejs');
 // Serve static files (such as images or CSS) from a directory 'public', built-in middleware function
 app.use(express.static('public'));
-// Connect the mongoose module to a mLab database, hidden the DB address with .env
-mongoose.connect(process.env.DATABASEADDRESS, { useNewUrlParser: true});
-//'mongodb://localhost:27017/portfolio' FOR LOCAL DB
+
+var dBURL = process.env.DATABASEURL || 'mongodb://localhost:27017/portfolio'; // Set up a variable in case DATABASEURL environment gets messed up
+// Connect mongoose module to MongoDB database, set in terminal (command export) - the address is therefore hidden and development & live dbs can be different
+mongoose.connect(dBURL, { useNewUrlParser: true}); 
 
 // passes moment to all routes with .locals for better handling of date
 app.locals.moment = require("moment");
