@@ -19,6 +19,9 @@ mongoose.connect(dBURL, { useNewUrlParser: true});
 // passes moment to all routes with .locals for better handling of date
 app.locals.moment = require("moment");
 
+// Serve static files in public folder, needed to serve Corealate certificate picture and have a reference for the database item
+app.use(express.static('public'))
+
 // Resume - show all jobs & education from DB
 app.get('/', function(req, res){
 	let locals = {};
