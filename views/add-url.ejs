@@ -1,0 +1,51 @@
+<% include ./partials/header %>
+
+    <div class="container">
+      <h2>API Project: URL Shortener Microservice</h2>
+      <% if (errorMessage) { %> 
+        <h2 style="color: red;"><%= errorMessage %></h2>
+      <% } %>
+      <h3>Add a new URL to be shortened</h3>
+      <div>
+        <form action="/apis-and-microservices/shorturl/new" method="POST">
+          <label for="url_input">URL to be shortened</label>
+          <input id="url_input" type="text" name="url" value="https://www.freecodecamp.org">
+          <input type="submit" value="POST URL">
+        </form>
+      </div>
+      <div>
+        <ul>
+        <% Object.keys(shortURLs).forEach((url) => { %>
+          <li><%= url %>: <%= shortURLs[url] %></li>
+        <% }) %>
+        </ul>
+      </div>
+
+      <hr/>
+
+      <h4>User Story: </h4>
+      <ol>
+        <li>I can POST a URL to <code>/apis-and-microservices/shorturl/new</code> and it will be added to the list above.</li>
+        <li>If I pass an invalid URL that doesn't follow the <code>http(s)://www.example.com(/more/routes)</code> an error will appear.<br>
+        HINT: to be sure that the submitted url points to a valid site you can use the function <code>dns.lookup(host, cb)</code> from the <code>dns</code> core module.</li>
+        <li>When I visit the shortened URL, it will redirect me to my original link.</li>
+      </ol>
+
+      <p>
+        example: <code>POST /apis-and-microservices/shorturl/new</code> - <code>https://www.google.com</code>
+      </p>
+
+      <h4>Example Usage:</h4>
+      <a href="./shorturl/1">
+        /shorturl/1
+      </a>
+
+      <h4>Will Redirect to:</h4>
+      <p> http://www.sodankyla.fi/Pages/Etusivu.aspx</p>
+    </div>
+
+
+
+    </div>
+
+<% include ./partials/footer %>

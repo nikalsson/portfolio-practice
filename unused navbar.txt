@@ -1,0 +1,43 @@
+
+					<!-- THE NAVBAR IS DISABLED FOR NOW, WASN'T NECESSARY-->
+		<!-- 
+		<nav id='navbar' class='navbar navbar-expand-md navbar-light'>
+				<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+						<span class='navbar-toggler-icon'></span>
+				</button>
+				<div class='collapse navbar-collapse' id='navbarSupportedContent'>
+						<ul class='navbar-nav mr-auto'>
+								<li class='nav-item'>
+										<a class='nav-link' href='#top'>Top</a>
+								</li>
+								<li class='nav-item'>
+										<a class='nav-link' href='#work'>Work</a>
+								</li>
+								<li class='nav-item'>
+										<a class='nav-link' href='#education'>Education</a>
+								</li>
+								<li class='nav-item'>
+										<a class='nav-link' href='#links'>Links</a>
+								</li>
+						</ul>
+				</div>
+		</nav> -->
+			<!-- 	for toggling the navbar classes	 -->
+			<script>
+				
+				// THE NAVBAR IS DISABLED FOR NOW - THIS IS NOT NECESSARY
+				// function checkWindowWidth() {
+				// 		if ($(window).width() < 768){
+				// 				$('#navbar').addClass('sticky-top bg-light');
+				// 		} else {
+				// $('#navbar').removeClass('sticky-top bg-light');
+				// 		}
+				// }
+
+				// checkWindowWidth();
+				// $(window).resize(checkWindowWidth)
+
+				
+
+
+			</script>	
